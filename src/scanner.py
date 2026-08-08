@@ -80,6 +80,7 @@ def scan_log(log_filepath, brute_force_threshold=5):
                             suspicious_activities.append({
                                 "line": line_num, "ip": ip, "type": attack_type, "url": url
                             })
+                            break  # Stop evaluating remaining patterns for this attack category once matched
 
                 if "login" in url.lower() and status in [401, 403]:
                     failed_logins_per_ip[ip] += 1
