@@ -1,29 +1,29 @@
 #  PySec-LogAnalyzer
 
-A beginner-friendly Python script built to learn the basics of log parsing, web attack detection, threat identification, and automated security reporting. 
+A lightweight Python script I built to get hands-on with log parsing, web attack detection, and automated security reporting.
 
-I built this project to transition from basic Python scripts to a more practical security tool and to get hands-on experience applying cybersecurity concepts (like SQL Injection, XSS, and Brute Force attacks) using real-world web server log formats.
+I built this project to transition from basic Python exercises to a more practical security tool and to get hands-on experience applying cybersecurity concepts (like SQLi, XSS, and Brute Force attacks) and seeing how they actually look inside real web server access logs.
 
 ---
 
-##  Purpose & Learning Goals
+##  Purpose & What I Learned
 
 
-Through this project, I practiced:
-- **Python Programming Skills:** Practiced writing modular Python scripts, using regular expressions (`re`), manipulating custom data structures (`defaultdict`) and handling CLI arguments (`sys.argv`).
-- **Log Parsing:** Using Regular Expressions (`re`) to extract IP addresses, HTTP methods, status codes, and request URLs from Apache/Nginx access logs.
-- **Payload Detection:** Matching URL query strings against common attack signatures (SQL Injection, Cross-Site Scripting, and Path Traversal).
-- **Behavioral Analysis:** Tracking failed authentication attempts (`401`/`403` status codes) per IP address to detect potential brute-force logins.
-- **Automated Reporting:** Writing structured Markdown reports (`reports/threat_report.md`) for SOC/SIEM documentation.
+Through this project, I practiced key security and coding concepts::
+- **Python Fundamentals:** Wrote modular code, handled command-line arguments (sys.argv), and managed dynamic counts using defaultdict.
+- **Log Parsing:** Used Regular Expressions (`re`) to extract IP addresses, HTTP methods, status codes, and request URLs from Apache/Nginx access logs.
+- **Payload Signature Detection:** Evaluated URL query strings against common attack signatures (SQL Injection, Cross-Site Scripting, and Path Traversal).
+- **Behavioral Detection:** Tracked failed authentication responses (401/403) by IP address to spot potential brute-force attempts.
+- **Automated Reporting:** Formatted and exported clean Markdown reports (reports/threat_report.md) to simulate basic SOC/SIEM documentation.
 
 ---
 
 ##  How It Works
 
-1. **Log Ingestion:** Reads access log entries matching the standard Combined Log Format.
-2. **Signature Matching:** Scans requested URLs using regular expressions for malicious patterns like `UNION SELECT`, `<script>`, or `/etc/passwd`.
-3. **Threshold Alerting:** Counts failed login requests for each unique IP address and flags IPs that exceed a threshold (default: 5 failed attempts).
-4. **Report Exporter:** Automatically exports threat metrics, flagged IPs, and attack URLs to `reports/threat_report.md`.
+- **Log Ingestion:** Reads web server access logs line-by-line using regular expressions to extract structured fields (IPs, timestamps, methods, URLs, status codes).
+- **Signature Matching:** Evaluates request URLs against regular expression patterns to detect embedded malicious payloads (SQL Injection, XSS, and Path Traversal).
+- **Threshold Alerting:** Tracks HTTP `401`/`403` failed login responses per unique IP address and flags IPs exceeding the brute-force threshold (default: 5 attempts).
+- **Report Exporter:** Automatically generates a structured Markdown document (`reports/threat_report.md`) detailing all detected payload attacks and high-risk IP anomalies.
 
 ---
 
