@@ -46,6 +46,8 @@ python src/scanner.py logs/sample_access.log
 ##  Generated Report Output
 When executed, the script generates a structured summary inside reports/threat_report.md:
 
-<img width="960" height="305" alt="Screenshot 2026-08-08 235216" src="https://github.com/user-attachments/assets/48f95346-cee3-4ca9-b274-c0e131030be9" />
+<img width="953" height="273" alt="image" src="https://github.com/user-attachments/assets/fc760ecd-ace9-41a7-972f-6ad64d72d44f" />
+<img width="953" height="365" alt="image" src="https://github.com/user-attachments/assets/48542197-52db-4dfd-8c41-ea26e10123b8" />
+
 
 
