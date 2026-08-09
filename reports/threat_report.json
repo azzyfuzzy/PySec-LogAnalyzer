@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "generated_at": "2026-08-10T03:26:09.014946",
+        "total_processed_lines": 12,
+        "threshold": 5
+    },
+    "summary": {
+        "total_payload_alerts": 2,
+        "total_brute_force_ips": 1
+    },
+    "detected_payloads": [
+        {
+            "ip": "172.16.0.99",
+            "category": "XSS (Cross-Site Scripting)",
+            "url": "/search.php?q=<script>alert(%27XSS%27)</script>"
+        },
+        {
+            "ip": "192.168.1.50",
+            "category": "Path Traversal",
+            "url": "/../../../../etc/passwd"
+        }
+    ],
+    "flagged_brute_force_ips": [
+        {
+            "ip": "10.0.0.45",
+            "failed_attempts": 6,
+            "risk_level": "MEDIUM"
+        }
+    ]
+}
