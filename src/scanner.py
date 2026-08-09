@@ -173,8 +173,8 @@ if __name__ == "__main__":
         "-j", "--json",
         nargs="?",
         const="reports/threat_report.json",
-        default=None,
-        help="Export findings to JSON format (optional path, default: reports/threat_report.json)"
+        default="reports/threat_report.json",
+        help="Export findings to JSON format (default: reports/threat_report.json)"
     )
 
     args = parser.parse_args()
