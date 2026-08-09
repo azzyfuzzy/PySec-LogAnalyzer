@@ -111,6 +111,23 @@ def scan_log(log_filepath, brute_force_threshold=5):
     except FileNotFoundError:
         print(f"[X] Error: Could not find log file at '{log_filepath}'")
 
+import argparse
+
 if __name__ == "__main__":
-    filepath = sys.argv[1] if len(sys.argv) > 1 else "logs/sample_access.log"
-    scan_log(filepath)
+    parser = argparse.ArgumentParser(
+        description="PySec-LogAnalyzer: Analyze web server access logs for malicious payloads and brute-force attacks."
+    )
+    parser.add_argument(
+        "-l", "--log", 
+        default="logs/sample_access.log", 
+        help="Path to the access log file (default: logs/sample_access.log)"
+    )
+    parser.add_argument(
+        "-t", "--threshold", 
+        type=int, 
+        default=5, 
+        help="Failed login threshold for brute-force detection (default: 5)"
+    )
+
+    args = parser.parse_args()
+    scan_log(args.log, args.threshold)
